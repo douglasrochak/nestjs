@@ -11,10 +11,10 @@ export interface QuestionProps {
   slug: Slug;
   content: string;
   authorId: UniqueEntityID;
-  bestAnswerId?: UniqueEntityID;
+  bestAnswerId?: UniqueEntityID | null;
   attachments: QuestionAttachmentList;
   createdAt: Date;
-  updatedAt?: Date;
+  updatedAt?: Date | null;
 }
 
 export default class Question extends AggregateRoot<QuestionProps> {
@@ -39,10 +39,22 @@ export default class Question extends AggregateRoot<QuestionProps> {
     this.props.updatedAt = new Date();
   }
 
+  get isNew() {
+    return dayjs().diff(this.createdAt, 'days') <= 3;
+  }
+
   set title(title: string) {
     this.props.title = title;
     this.props.slug = Slug.createFromText(title);
     this.touch();
+  }
+
+  get title() {
+    return this.props.title;
+  }
+
+  get slug() {
+    return this.props.slug;
   }
 
   set content(content: string) {
@@ -50,12 +62,15 @@ export default class Question extends AggregateRoot<QuestionProps> {
     this.touch();
   }
 
-  set attachments(attachments: QuestionAttachmentList) {
-    this.props.attachments = attachments;
-    this.touch();
+  get content() {
+    return this.props.content;
   }
 
-  set bestAnswerId(bestAnswerId: UniqueEntityID | undefined) {
+  get authorId() {
+    return this.props.authorId;
+  }
+
+  set bestAnswerId(bestAnswerId: UniqueEntityID | undefined | null) {
     if (bestAnswerId && bestAnswerId !== this.props.bestAnswerId) {
       this.addDomainEvent(
         new QuestionBestAnswerChosenEvent(this, bestAnswerId),
@@ -67,28 +82,13 @@ export default class Question extends AggregateRoot<QuestionProps> {
     this.touch();
   }
 
-  get isNew() {
-    return dayjs().diff(this.createdAt, 'days') <= 3;
-  }
-
-  get title() {
-    return this.props.title;
-  }
-
-  get slug() {
-    return this.props.slug;
-  }
-
-  get content() {
-    return this.props.content;
-  }
-
-  get authorId() {
-    return this.props.authorId;
-  }
-
   get bestAnswerId() {
     return this.props.bestAnswerId;
+  }
+
+  set attachments(attachments: QuestionAttachmentList) {
+    this.props.attachments = attachments;
+    this.touch();
   }
 
   get attachments() {
