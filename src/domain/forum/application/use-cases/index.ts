@@ -14,6 +14,8 @@ import FetchQuestionAnswersUseCase from './fetch-question-answers';
 import FetchQuestionCommentsUseCase from './fetch-question-comments';
 import FetchRecentQuestionsUseCase from './fetch-recent-questions';
 import GetQuestionBySlugUseCase from './get-question-by-slug';
+import RegisterStudentUseCase from './register-student';
+import AuthenticateStudentUseCase from './authenticate-student';
 
 export {
   AnswerQuestionUseCase,
@@ -32,4 +34,6 @@ export {
   FetchQuestionCommentsUseCase,
   FetchRecentQuestionsUseCase,
   GetQuestionBySlugUseCase,
+  RegisterStudentUseCase,
+  AuthenticateStudentUseCase,
 };
