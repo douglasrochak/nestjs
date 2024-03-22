@@ -1,7 +1,6 @@
 import { Either, left, right } from '@/core/either';
 import { Injectable } from '@nestjs/common';
 import { StudentsRepository } from '../repositories/students-repository';
-import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found';
 import { HashComparer } from '../crypto/hash-comparer';
 import { Encrypter } from '../crypto/encrypter';
 import { WrongCredentialsError } from './errors/wrong-credentials-error';
@@ -12,7 +11,7 @@ interface AuthenticateStudentUseCaseRequest {
 }
 
 type AuthenticateStudentUseCaseResponse = Either<
-  ResourceNotFoundError | WrongCredentialsError,
+  WrongCredentialsError,
   {
     accessToken: string;
   }
@@ -32,7 +31,7 @@ export default class AuthenticateStudentUseCase {
   }: AuthenticateStudentUseCaseRequest): Promise<AuthenticateStudentUseCaseResponse> {
     const student = await this.studentsRepo.findByEmail(email);
 
-    if (!student) return left(new ResourceNotFoundError());
+    if (!student) return left(new WrongCredentialsError());
 
     const isPasswordCorrect = await this.hashCompare.compare(
       password,
