@@ -4,27 +4,12 @@ export interface CommentProps {
   authorId: UniqueEntityID;
   content: string;
   createdAt: Date;
-  updatedAt?: Date;
+  updatedAt?: Date | null;
 }
 
 export default abstract class Comment<
   Props extends CommentProps,
 > extends Entity<Props> {
-  // static create(
-  //   props: Optional<CommentProps, "createdAt">,
-  //   id?: UniqueEntityID
-  // ) {
-  //   const comment = new Comment(
-  //     {
-  //       ...props,
-  //       createdAt: props.createdAt ?? new Date(),
-  //     },
-  //     id
-  //   )
-
-  //   return comment
-  // }
-
   private touch() {
     this.props.updatedAt = new Date();
   }
