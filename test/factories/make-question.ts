@@ -34,15 +34,8 @@ export class QuestionFactory {
   ): Promise<Question> {
     const question = makeQuestion(data);
 
-    const { authorId, content, slug, title } =
-      PrismaQuestionMapper.toPrisma(question);
     await this.prisma.question.create({
-      data: {
-        slug,
-        content,
-        title,
-        authorId,
-      },
+      data: PrismaQuestionMapper.toPrisma(question),
     });
 
     return question;
