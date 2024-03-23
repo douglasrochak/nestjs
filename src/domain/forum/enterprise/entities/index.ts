@@ -4,12 +4,18 @@ import Question from './question';
 import Student from './student';
 import AnswerComment from './answer-comment';
 import QuestionComment from './question-comment';
+import Attachment from './attachment';
+import QuestionAttachment from './question-attachment';
+import AnswerAttachment from './answer-attachment';
 
 export {
-  Instructor,
   Answer,
-  Question,
-  Student,
+  Attachment,
   AnswerComment,
+  Instructor,
+  Student,
+  Question,
   QuestionComment,
+  QuestionAttachment,
+  AnswerAttachment,
 };
