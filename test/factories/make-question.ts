@@ -11,12 +11,13 @@ export function makeQuestion(
   override: Partial<QuestionProps> = {},
   id?: UniqueEntityID,
 ) {
+  const TITLE = faker.lorem.sentence();
   const question = Question.create(
     {
-      title: faker.lorem.sentence(),
+      title: TITLE,
       authorId: new UniqueEntityID(),
       content: faker.lorem.text(),
-      slug: Slug.create('example-question'),
+      slug: Slug.createFromText(TITLE),
       ...override,
     },
     id,
