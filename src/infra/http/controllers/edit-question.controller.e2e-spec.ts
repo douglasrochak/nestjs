@@ -30,7 +30,7 @@ describe('Edit Question E2E', () => {
     await app.init();
   });
 
-  test('[POST] /questions/:slug', async () => {
+  test('[POST] /questions/:id', async () => {
     const user = await studentFactory.makePrismaStudent({
       email: 'johndoe@email.com',
       name: 'John Doe',
