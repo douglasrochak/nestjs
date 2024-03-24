@@ -10,6 +10,10 @@ import { QuestionsRepository } from '@/domain/forum/application/repositories/que
 import { StudentsRepository } from '@/domain/forum/application/repositories/students-repository';
 import { PrismaStudentsRepository } from './prisma/repositories/prisma-students-repository';
 import { QuestionAttachmentsRepository } from '@/domain/forum/application/repositories/question-attachments-repository';
+import { QuestionCommentsRepository } from '@/domain/forum/application/repositories/question-comments-repository';
+import { AnswersRepository } from '@/domain/forum/application/repositories/answers-repository';
+import { AnswerCommentsRepository } from '@/domain/forum/application/repositories/answer-comments-repository';
+import { AnswerAttachmentsRepository } from '@/domain/forum/application/repositories/answer-attachments-repository';
 
 @Module({
   imports: [],
@@ -27,17 +31,26 @@ import { QuestionAttachmentsRepository } from '@/domain/forum/application/reposi
       provide: QuestionAttachmentsRepository,
       useClass: PrismaQuestionAttachmentsRepository,
     },
-    PrismaQuestionCommentsRepository,
-    PrismaAnswersRepository,
-    PrismaAnswerCommentsRepository,
-    PrismaAnswerAttachmentsRepository,
+    {
+      provide: QuestionCommentsRepository,
+      useClass: PrismaQuestionCommentsRepository,
+    },
+    { provide: AnswersRepository, useClass: PrismaAnswersRepository },
+    {
+      provide: AnswerCommentsRepository,
+      useClass: PrismaAnswerCommentsRepository,
+    },
+    {
+      provide: AnswerAttachmentsRepository,
+      useClass: PrismaAnswerAttachmentsRepository,
+    },
   ],
   exports: [
     PrismaService,
-    PrismaQuestionCommentsRepository,
-    PrismaAnswersRepository,
-    PrismaAnswerCommentsRepository,
-    PrismaAnswerAttachmentsRepository,
+    AnswerAttachmentsRepository,
+    AnswerCommentsRepository,
+    AnswersRepository,
+    QuestionCommentsRepository,
     QuestionsRepository,
     QuestionAttachmentsRepository,
     StudentsRepository,
