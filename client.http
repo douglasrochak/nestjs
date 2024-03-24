@@ -48,3 +48,15 @@ Authorization: Bearer {{authToken}}
 GET {{baseUrl}}/questions/nova-pergunta-2
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
+
+###
+
+# @name edit_question
+POST {{baseUrl}}/questions/9866781b-7149-47f9-bc27-dcef872d33bc
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "title": "Pergunta Editada",
+  "content": "Conteudo da pergunta Editada"
+}
