@@ -7,7 +7,7 @@ import AnswerAttachment from '../../enterprise/entities/answer-attachment';
 import { Injectable } from '@nestjs/common';
 
 interface AnswerQuestionUseCaseRequest {
-  instructorId: string;
+  authorId: string;
   questionId: string;
   content: string;
   attachmentsIds: string[];
@@ -20,14 +20,14 @@ export default class AnswerQuestionUseCase {
   constructor(private repo: AnswersRepository) {}
 
   async execute({
-    instructorId,
+    authorId,
     questionId,
     content,
     attachmentsIds,
   }: AnswerQuestionUseCaseRequest): Promise<AnswerQuestionUseCaseResponse> {
     const answer = Answer.create({
       content,
-      authorId: new UniqueEntityID(instructorId),
+      authorId: new UniqueEntityID(authorId),
       questionId: new UniqueEntityID(questionId),
     });
 
