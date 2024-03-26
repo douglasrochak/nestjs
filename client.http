@@ -66,6 +66,13 @@ Authorization: Bearer {{authToken}}
 
 ###
 
+# @name delete_question
+DELETE {{baseUrl}}/questions/9866781b-7149-47f9-bc27-dcef872d33bc
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
 # @name answer_question
 POST {{baseUrl}}/questions/9866781b-7149-47f9-bc27-dcef872d33bc/answers
 Content-Type: application/json
@@ -87,3 +94,10 @@ Authorization: Bearer {{authToken}}
   "content": "Resposta Editada",
   "attachmentsIds": []
 }
+
+###
+
+# @name delete_answer
+DELETE  {{baseUrl}}/answers/{{answerId}}
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
