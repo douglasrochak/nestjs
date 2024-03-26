@@ -1,4 +1,7 @@
 @baseUrl=http://localhost:3333
+
+@answerId=191a9bc0-a45a-4519-bdce-f47052560783
+@questionId=77d51ea6-3d3f-4ba0-989a-41a421541c5c
 @authToken={{authenticate.response.body.access_token}}
 
 # @name create_account
@@ -70,5 +73,17 @@ Authorization: Bearer {{authToken}}
 
 {
   "content": "Resposta da pergunta",
+  "attachmentsIds": []
+}
+
+###
+
+# @name edit_answer
+POST {{baseUrl}}/answers/{{answerId}}
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "content": "Resposta Editada",
   "attachmentsIds": []
 }
