@@ -150,3 +150,10 @@ Authorization: Bearer {{authToken}}
 {
   "content": "conteudo do comentario"
 }
+
+###
+
+# @name delete_answer_comment
+DELETE {{baseUrl}}/answers/comments/{{commentId}}
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
