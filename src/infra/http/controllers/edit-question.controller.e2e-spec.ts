@@ -58,7 +58,7 @@ describe('Edit Question E2E', () => {
       where: { id: question.id.toString() },
     });
 
-    expect(result.statusCode).toBe(201);
+    expect(result.statusCode).toBe(204);
     expect(prismaQuestion).toEqual(
       expect.objectContaining({
         id: question.id.toString(),

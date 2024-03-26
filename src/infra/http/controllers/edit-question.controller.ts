@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Body,
   Controller,
+  HttpCode,
   Param,
   Post,
   UseGuards,
@@ -27,6 +28,7 @@ export class EditQuestionController {
   constructor(private editQuestion: EditQuestionUseCase) {}
 
   @Post()
+  @HttpCode(204)
   async handle(
     @Param('id') questionId: string,
     @Body(new ZodValidationPipe(editQuestionBodySchema))
