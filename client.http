@@ -1,6 +1,6 @@
 @baseUrl=http://localhost:3333
 
-@answerId=191a9bc0-a45a-4519-bdce-f47052560783
+@answerId=e315afc6-4f44-41bc-bb05-b36d1f9cdf16
 @questionId=9866781b-7149-47f9-bc27-dcef872d33bc
 @authToken={{authenticate.response.body.access_token}}
 
@@ -106,5 +106,12 @@ Authorization: Bearer {{authToken}}
 
 # @name fetch_question_answers
 GET  {{baseUrl}}/question/{{questionId}}/answers?p=1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name choose_best_answer
+PATCH {{baseUrl}}/answers/{{answerId}}/choose-best
 Content-Type: application/json
 Authorization: Bearer {{authToken}}

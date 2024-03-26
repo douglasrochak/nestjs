@@ -7,6 +7,7 @@ import { DatabaseModule } from '../database/database.module';
 import {
   AnswerQuestionUseCase,
   AuthenticateStudentUseCase,
+  ChooseQuestionBestAnswerUseCase,
   CreateQuestionUseCase,
   DeleteAnswerUseCase,
   DeleteQuestionUseCase,
@@ -26,6 +27,7 @@ import { AnswerQuestionController } from './controllers/answer-question.controll
 import { EditAnswerController } from './controllers/edit-answer.controller';
 import { DeleteAnswerController } from './controllers/delete-answer.controller';
 import { FetchQuestionAnswersController } from './controllers/fetch-question-answers.controller';
+import { ChooseQuestionBestAnswerController } from './controllers/choose-question-best-answer';
 
 @Module({
   imports: [DatabaseModule, CryptoModule],
@@ -41,6 +43,7 @@ import { FetchQuestionAnswersController } from './controllers/fetch-question-ans
     EditAnswerController,
     DeleteAnswerController,
     FetchQuestionAnswersController,
+    ChooseQuestionBestAnswerController,
   ],
   providers: [
     CreateQuestionUseCase,
@@ -54,6 +57,7 @@ import { FetchQuestionAnswersController } from './controllers/fetch-question-ans
     EditAnswerUseCase,
     DeleteAnswerUseCase,
     FetchQuestionAnswersUseCase,
+    ChooseQuestionBestAnswerUseCase,
   ],
 })
 export class HttpModule {}
