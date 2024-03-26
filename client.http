@@ -2,6 +2,7 @@
 
 @answerId=e315afc6-4f44-41bc-bb05-b36d1f9cdf16
 @questionId=9866781b-7149-47f9-bc27-dcef872d33bc
+@commentId=cfb0fbae-34b7-4f54-95f2-b68a969218c6
 @authToken={{authenticate.response.body.access_token}}
 
 # @name create_account
@@ -120,6 +121,18 @@ Authorization: Bearer {{authToken}}
 
 # @name comment_on_question
 POST {{baseUrl}}/questions/{{questionId}}/comments
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "content": "conteudo do comentario"
+}
+
+
+###
+
+# @name delete_question_comment
+POST {{baseUrl}}/questions/comments/{{commentId}}
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
