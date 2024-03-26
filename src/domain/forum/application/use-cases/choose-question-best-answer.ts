@@ -39,6 +39,8 @@ export default class ChooseQuestionBestAnswerUseCase {
       return left(new NotAllowedError());
 
     question.bestAnswerId = answer.id;
+    this.questionRepo.save(question);
+
     return right({ question });
   }
 }
