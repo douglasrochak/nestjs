@@ -18,6 +18,7 @@ import {
   EditAnswerUseCase,
   EditQuestionUseCase,
   FetchQuestionAnswersUseCase,
+  FetchQuestionCommentsUseCase,
   FetchRecentQuestionsUseCase,
   GetQuestionBySlugUseCase,
   RegisterStudentUseCase,
@@ -36,6 +37,7 @@ import { CommentOnQuestionController } from './controllers/comment-on-question.c
 import { DeleteQuestionCommentController } from './controllers/delete-question-comment.controller';
 import { CommentOnAnswerController } from './controllers/comment-on-answer.controller';
 import { DeleteAnswerCommentController } from './controllers/delete-answer-comment.controller';
+import { FetchQuestionCommentsController } from './controllers/fetch-question-comments.controller';
 
 @Module({
   imports: [DatabaseModule, CryptoModule],
@@ -56,6 +58,7 @@ import { DeleteAnswerCommentController } from './controllers/delete-answer-comme
     DeleteQuestionCommentController,
     CommentOnAnswerController,
     DeleteAnswerCommentController,
+    FetchQuestionCommentsController,
   ],
   providers: [
     CreateQuestionUseCase,
@@ -74,6 +77,7 @@ import { DeleteAnswerCommentController } from './controllers/delete-answer-comme
     DeleteQuestionCommentUseCase,
     CommentOnAnswerUseCase,
     DeleteAnswerCommentUseCase,
+    FetchQuestionCommentsUseCase,
   ],
 })
 export class HttpModule {}
