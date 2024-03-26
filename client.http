@@ -60,3 +60,15 @@ Authorization: Bearer {{authToken}}
   "title": "Pergunta Editada",
   "content": "Conteudo da pergunta Editada"
 }
+
+###
+
+# @name answer_question
+POST {{baseUrl}}/questions/9866781b-7149-47f9-bc27-dcef872d33bc/answers
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "content": "Resposta da pergunta",
+  "attachmentsIds": []
+}
