@@ -148,12 +148,20 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "content": "conteudo do comentario"
+  "content": "Novo comentario"
 }
 
 ###
 
 # @name delete_answer_comment
 DELETE {{baseUrl}}/answers/comments/{{commentId}}
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+
+###
+
+# @name fetch_answer_comment
+GET {{baseUrl}}/answers/{{answerId}}/comments
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
