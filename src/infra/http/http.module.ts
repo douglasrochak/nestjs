@@ -5,6 +5,7 @@ import { CreateQuestionController } from '@/infra/http/controllers/create-questi
 import { FetchRecentQuestionController } from '@/infra/http/controllers/fetch-recent-questions.controller';
 import { DatabaseModule } from '../database/database.module';
 import {
+  AnswerQuestionUseCase,
   AuthenticateStudentUseCase,
   CreateQuestionUseCase,
   DeleteQuestionUseCase,
@@ -18,6 +19,7 @@ import { CryptoModule } from '../crypto/crypto.module';
 import { GetQuestionBySlugController } from './controllers/get-question-by-slug.controller';
 import { EditQuestionController } from './controllers/edit-question.controller';
 import { DeleteQuestionController } from './controllers/delete-question.controller';
+import { AnswerQuestionController } from './controllers/answer-question.controller';
 
 @Module({
   imports: [DatabaseModule, CryptoModule],
@@ -29,6 +31,7 @@ import { DeleteQuestionController } from './controllers/delete-question.controll
     GetQuestionBySlugController,
     EditQuestionController,
     DeleteQuestionController,
+    AnswerQuestionController,
   ],
   providers: [
     CreateQuestionUseCase,
@@ -38,6 +41,7 @@ import { DeleteQuestionController } from './controllers/delete-question.controll
     GetQuestionBySlugUseCase,
     EditQuestionUseCase,
     DeleteQuestionUseCase,
+    AnswerQuestionUseCase,
   ],
 })
 export class HttpModule {}
