@@ -48,7 +48,5 @@ export class EditQuestionController {
     if (result.isLeft()) {
       throw new BadRequestException();
     }
-
-    return { question: result.value.question };
   }
 }
