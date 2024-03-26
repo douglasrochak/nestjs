@@ -58,8 +58,6 @@ describe('Choose question best answer E2E', () => {
       where: { id: question.id.toString() },
     });
 
-    console.log(prismaQuestion);
-
     expect(result.statusCode).toBe(204);
     expect(prismaQuestion?.bestAnswerId).toBe(answer.id.toString());
   });
