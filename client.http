@@ -139,3 +139,14 @@ Authorization: Bearer {{authToken}}
 {
   "content": "conteudo do comentario"
 }
+
+###
+
+# @name comment_on_answer
+POST {{baseUrl}}/answers/{{answerId}}/comments
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "content": "conteudo do comentario"
+}
