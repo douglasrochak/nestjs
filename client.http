@@ -1,7 +1,7 @@
 @baseUrl=http://localhost:3333
 
 @answerId=191a9bc0-a45a-4519-bdce-f47052560783
-@questionId=77d51ea6-3d3f-4ba0-989a-41a421541c5c
+@questionId=9866781b-7149-47f9-bc27-dcef872d33bc
 @authToken={{authenticate.response.body.access_token}}
 
 # @name create_account
@@ -79,7 +79,7 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "content": "Resposta da pergunta",
+  "content": "Resposta 4",
   "attachmentsIds": []
 }
 
@@ -99,5 +99,12 @@ Authorization: Bearer {{authToken}}
 
 # @name delete_answer
 DELETE  {{baseUrl}}/answers/{{answerId}}
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name fetch_question_answers
+GET  {{baseUrl}}/question/{{questionId}}/answers?p=1
 Content-Type: application/json
 Authorization: Bearer {{authToken}}

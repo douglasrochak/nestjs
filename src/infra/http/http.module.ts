@@ -12,6 +12,7 @@ import {
   DeleteQuestionUseCase,
   EditAnswerUseCase,
   EditQuestionUseCase,
+  FetchQuestionAnswersUseCase,
   FetchRecentQuestionsUseCase,
   GetQuestionBySlugUseCase,
   RegisterStudentUseCase,
@@ -24,6 +25,7 @@ import { DeleteQuestionController } from './controllers/delete-question.controll
 import { AnswerQuestionController } from './controllers/answer-question.controller';
 import { EditAnswerController } from './controllers/edit-answer.controller';
 import { DeleteAnswerController } from './controllers/delete-answer.controller';
+import { FetchQuestionAnswersController } from './controllers/fetch-question-answers.controller';
 
 @Module({
   imports: [DatabaseModule, CryptoModule],
@@ -38,6 +40,7 @@ import { DeleteAnswerController } from './controllers/delete-answer.controller';
     AnswerQuestionController,
     EditAnswerController,
     DeleteAnswerController,
+    FetchQuestionAnswersController,
   ],
   providers: [
     CreateQuestionUseCase,
@@ -50,6 +53,7 @@ import { DeleteAnswerController } from './controllers/delete-answer.controller';
     AnswerQuestionUseCase,
     EditAnswerUseCase,
     DeleteAnswerUseCase,
+    FetchQuestionAnswersUseCase,
   ],
 })
 export class HttpModule {}
